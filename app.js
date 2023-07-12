@@ -1,8 +1,8 @@
 console.log("Let's get this party started!");
 
 function postGiphy(giphy) {
-  console.log(`data from postGiphy${giphy.data[0]}`);
-  //$("#giphy-canvas").append(`<img src="${giphy.data[0].url}">`);
+ console.log("giphy url=", giphy.data.data[0].images.downsized.url);
+  $(".giphy-canvas").append(`<img src="${giphy.data.data[0].images.downsized.url}">`);
 }
 
 
@@ -14,5 +14,10 @@ async function addGiphy() {
   postGiphy(giphy);
 }
 
-$("#submit").on("click", addGiphy);
+$("#submit").on("click", function(e){
+  e.preventDefault();
+  addGiphy();
+  });
+
+
 
