@@ -1,7 +1,8 @@
 console.log("Let's get this party started!");
 
-async function postGiphy(giphy) {
-  $("#giphy-canvas").append(`<img src="${giphy.url}">`);
+function postGiphy(giphy) {
+  console.log(`data from postGiphy${giphy.data[0]}`);
+  //$("#giphy-canvas").append(`<img src="${giphy.data[0].url}">`);
 }
 
 
@@ -13,7 +14,5 @@ async function addGiphy() {
   postGiphy(giphy);
 }
 
-$("#submit").on("click", function(e){
-  e.preventDefault();
-  addGiphy();});
+$("#submit").on("click", addGiphy);
 
