@@ -8,20 +8,17 @@ function postGiphy(giphy) {
 }
 
 /** addGiphy: Get search value and send request for gif matching value */
-async function addGiphy() {
+async function addGiphy(event) {
+  event.preventDefault();
   let searchTerm = $("#search-term").val();
 
   let giphy = await axios.get(`http://api.giphy.com/v1/gifs/search?q=${searchTerm}
   &api_key=MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym&limit=1`);
 
   postGiphy(giphy);
-  console.log(giphy);
 }
 
-$("#submit").on("click", function(e){
-  e.preventDefault();
-  addGiphy();
-  });
+$("#submit").on("click", addGiphy);
 
 /** deleteGiphy: Delete all gifs in giphy-canvas */
   function deleteGiphy() {
