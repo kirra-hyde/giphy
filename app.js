@@ -15,6 +15,7 @@ async function addGiphy() {
   &api_key=MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym&limit=1`);
 
   postGiphy(giphy);
+  console.log(giphy);
 }
 
 $("#submit").on("click", function(e){
